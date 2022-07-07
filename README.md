@@ -36,3 +36,15 @@ languages are defined by creating `.toml` files in the `langs` directory. these 
 configuration is defined in `s4.toml`. available keys are:
 
 - `default_lang`: language that will be rendered at the root of the output folder. it will also be rendered inside it's directory
+
+## example
+
+there's an example in `example_site`. if you want to run it:
+
+```bash
+[s4] $ cargo b
+[s4] $ cd example_site
+[s4/example_site] $ ../target/debug/s4
+# if you have python installed, you can use the following:
+[s4/example_site] $ python3 -m "http.server" --directory out
+```

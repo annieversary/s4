@@ -1,8 +1,9 @@
 /target
 .DS_Store
 
-langs
-static
-out
-templates
-s4.toml
+/langs
+/static
+/out
+/templates
+/s4.toml
+/example_site/out
