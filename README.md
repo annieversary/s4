@@ -29,7 +29,7 @@ languages are defined by creating `.toml` files in the `langs` directory. these 
 
 ## filters
 
-- `link`: if `lang` is `en`, then `{{ "hello" | link}}` will be `/en/hello`
+- `link`: if `lang` is `en`, then `{{ "hello" | link }}` will be `/en/hello`
 
 ## config
 

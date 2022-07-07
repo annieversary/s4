@@ -1,5 +1,6 @@
 use std::{
     collections::HashMap,
+    env::args,
     ffi::OsStr,
     fs::{read_dir, read_to_string, File},
     io::Write,
@@ -16,11 +17,22 @@ use toml::Value;
 fn main() -> Result<()> {
     color_eyre::install()?;
 
+    let arg = args().nth(1);
+    if arg.as_deref() == Some("-v") || arg.as_deref() == Some("--version") {
+        println!(
+            "s4 {} {} {}",
+            env!("VERGEN_BUILD_SEMVER"),
+            env!("VERGEN_GIT_SHA_SHORT"),
+            env!("VERGEN_BUILD_DATE")
+        );
+        return Ok(());
+    }
+
     // load
     let config = load_config()?;
     let langs = load_langs()?;
     println!("found {} languages", langs.len());
-    let mut tera = Tera::new("templates/**")?;
+    let mut tera = Tera::new("templates/**/*.html")?;
     println!(
         "found {} pages",
         tera.get_template_names()

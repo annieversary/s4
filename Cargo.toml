@@ -3,9 +3,14 @@ name = "s4"
 version = "0.1.0"
 edition = "2021"
 
+build = "build.rs"
+
 [dependencies]
 color-eyre = "0.6.1"
 serde = "1.0.138"
 serde_derive = "1.0.138"
 tera = "1.15.0"
 toml = "0.5.9"
+
+[build-dependencies]
+vergen = { version = "6", default-features = false, features = ["build", "git"] }
